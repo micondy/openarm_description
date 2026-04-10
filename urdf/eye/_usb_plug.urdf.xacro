@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="usb_plug" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="usb_plug" params="parent *origin name:=usb_plug">
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+
+    <joint name="${name}_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}" />
+      <child link="${name}_link" />
+    </joint>
+
+    <link name="${name}_link">
+      <visual>
+        <origin xyz="0. -0.022425 0." rpy="0 0 ${M_PI/2}"/>
+        <geometry>
+          <mesh filename="package://openarm_description/meshes/eye/plug.stl" />
+        </geometry>
+        <material name="plastic"/>
+      </visual>
+      <collision>
+        <origin xyz="0. -0.022425 0." rpy="0 0 ${M_PI/2}"/>
+        <geometry>
+          <mesh filename="package://openarm_description/meshes/eye/plug_collision.stl" />
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+</robot>

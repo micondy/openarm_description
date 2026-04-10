@@ -32,6 +32,14 @@
       <child link="${ee_prefix}hand_tcp" />
     </joint>
 
+    <!-- Planning tip frame, available in both fake and real hardware chains -->
+    <link name="${ee_prefix}gripper_tip" />
+    <joint name="${ee_prefix}gripper_tip_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${ee_prefix}hand_tcp" />
+      <child link="${ee_prefix}gripper_tip" />
+    </joint>
+
     <link name="${ee_prefix}left_finger">
       <visual name="${ee_prefix}left_finger_visual">
         <xacro:openarm-ee-kinematics-link config="${ee_kinematics_link}" name="left_finger" />

@@ -98,6 +98,7 @@
         kinematics="${kinematics}"
         kinematics_link="${kinematics_link}"
         kinematics_offset="${kinematics_offset}" />
+        
 
         <!-- ros2_control hardware interfaces for bimanual setup -->
         <xacro:if value="${ros2_control}">
